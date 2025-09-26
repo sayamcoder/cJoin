@@ -1,0 +1,29 @@
+name: cJoin
+version: '1.0'
+main: com.bx5z.cJoin.CJoin
+api-version: '1.21'
+prefix: cJoin
+authors: [ sayam ]
+description: Customizable join and quit messages for your PaperMC server.
+softdepend: [PlaceholderAPI]
+
+commands:
+  cjoin:
+    description: Main command for the cJoin plugin.
+    usage: /<command> <reload|preview>
+    permission: cjoin.admin
+    aliases: [cj]
+
+permissions:
+  cjoin.admin:
+    description: Allows access to admin commands like /cjoin reload and /cjoin preview.
+    default: op
+  cjoin.vip:
+    description: Displays VIP join/quit messages.
+    default: false
+  cjoin.staff:
+    description: Displays Staff join/quit messages.
+    default: false
+  cjoin.silent:
+    description: Allows for silent joining and leaving, hiding messages.
+    default: false

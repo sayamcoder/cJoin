@@ -1,0 +1,96 @@
+# cJoin Configuration File v1.1.0 by sayam
+#
+# Placeholders:
+# {player} - Player's name
+# {displayname} - Player's display name
+# {world} - The name of the world the player is in
+# {online} - Current number of online players
+# {max} - Maximum number of players
+#
+# PlaceholderAPI placeholders are supported if PlaceholderAPI is installed.
+
+# Enable or disable join/quit messages entirely.
+messages:
+  join:
+    enabled: true
+  quit:
+    enabled: true
+
+# Message sent when a player joins for the very first time.
+# Set enabled to false to disable this specific message.
+first-join:
+  enabled: true
+  message: "&6Welcome {player} to the server for the first time!"
+
+# Default messages used if no other conditions are met.
+default:
+  join: "&a{player} joined the game. ({online}/{max})"
+  quit: "&c{player} left the game."
+
+# Permission-based messages.
+# The plugin will check for permissions in the order they appear here.
+# The first match will be used.
+# The permission node is "cjoin.<key>", e.g., "cjoin.staff".
+permission-groups:
+  staff:
+    join: "&b⚡ {player} (Staff) has arrived!"
+    quit: "&b⚡ {player} (Staff) has departed."
+  vip:
+    join: "&d⭐ {player} (VIP) has entered the server!"
+    quit: "&d⭐ {player} (VIP) has left the server."
+
+# Per-world messages. These override any default or permission-based messages.
+# World names are case-sensitive.
+worlds:
+  world_the_end:
+    join: "&5{player} has entered The End."
+    quit: "&5{player} has escaped The End."
+  Hub:
+    join: "&e{player} joined the Hub!"
+    quit: "&e{player} left the Hub."
+
+# --- FEATURES ---
+
+# Check for new plugin updates on SpigotMC.
+# Notifies admins with 'cjoin.admin' permission on join.
+update-checker:
+  enabled: true
+  # Do not change the resource ID unless you are the developer.
+  # This is a placeholder ID. Replace with your actual Spigot resource ID.
+  spigot-resource-id: 99999
+
+# Display animated join/quit messages. This will override the single message format.
+animations:
+  # Enable for join messages?
+  join:
+    enabled: false
+    # How fast the frames switch, in server ticks (20 ticks = 1 second).
+    interval-ticks: 3
+    # Each line is a frame. Use {message} to insert the final, resolved message.
+    # The message placeholder will NOT have its own colors, it will inherit from the frame.
+    frames:
+      - "&a&l> &a{message}"
+      - "&a&l>> &2{message}"
+      - "&a&l>>> &a{message}"
+      - "&2&l> &a&l>> &2{message}"
+      - "&a&l> &2&l>> &a&l>>> &a{message}"
+
+  # Enable for quit messages?
+  quit:
+    enabled: false
+    interval-ticks: 3
+    frames:
+      - "&c&l< &c{message}"
+      - "&c&l<< &4{message}"
+      - "&c&l<<< &c{message}"
+
+# Messages for commands and other plugin interactions.
+plugin-messages:
+  prefix: "&8[&b&lcJoin&8] &r"
+  reload: "&aConfiguration reloaded successfully."
+  no-permission: "&cYou do not have permission to use this command."
+  invalid-command: "&cInvalid command. Use /cjoin help."
+  preview-usage: "&cInvalid usage. Use /cjoin preview <join|quit|first> [group]"
+  preview-header: "&7--- &bMessage Preview &7---"
+  preview-not-found: "&cCould not find a message for that type/group."
+  update-available: "&aA new version of cJoin is available! &7(v{new_version}) &eDownload on SpigotMC."

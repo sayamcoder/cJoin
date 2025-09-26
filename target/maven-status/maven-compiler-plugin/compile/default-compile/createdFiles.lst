@@ -1,0 +1,9 @@
+com\bx5z\cJoin\commands\CJoinCommand.class
+com\bx5z\cJoin\listeners\PlayerJoinQuitListener.class
+com\bx5z\cJoin\util\UpdateChecker.class
+com\bx5z\cJoin\CJoin.class
+com\bx5z\cJoin\util\AnimationHandler$1.class
+com\bx5z\cJoin\util\MessageHandler.class
+com\bx5z\cJoin\api\events\CQuitMessageEvent.class
+com\bx5z\cJoin\util\AnimationHandler.class
+com\bx5z\cJoin\api\events\CJoinMessageEvent.class
